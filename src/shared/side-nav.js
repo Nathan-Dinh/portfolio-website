@@ -37,19 +37,14 @@ export class SideNavigation extends LitElement {
       },
       "/projects": {
         page: "/src/pages/projects.html",
-        title: "/",
+        title: "/projects",
         description: "",
       },
       "/skills": {
         page: "/src/pages/skills.html",
-        title: "/",
+        title: "/skills",
         description: "",
-      },
-      "/socials": {
-        page: "/src/pages/socials.html",
-        title: "/",
-        description: "",
-      },
+      }
     };
   }
 
