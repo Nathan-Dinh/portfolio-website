@@ -73,6 +73,7 @@ export class SideNavigation extends LitElement {
     const html = await fetch(ROUTE.page).then((response) => {
       return response.text();
     });
+    window.history.pushState({}, "", ROUTE.title);
     document.getElementById("root").innerHTML = html;
     window.scrollTo({ top: 0, behavior: "smooth" });
   }

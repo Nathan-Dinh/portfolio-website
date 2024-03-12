@@ -1264,10 +1264,6 @@ html {
   display: inline-flex;
 }
 
-.hidden {
-  display: none;
-}
-
 .h-10 {
   height: 2.5rem;
 }
@@ -1286,6 +1282,10 @@ html {
 
 .h-full {
   height: 100%;
+}
+
+.h-6 {
+  height: 1.5rem;
 }
 
 .min-h-screen {
@@ -1326,6 +1326,10 @@ html {
 
 .w-full {
   width: 100%;
+}
+
+.w-6 {
+  width: 1.5rem;
 }
 
 .max-w-\\[60\\%\\] {
@@ -1619,16 +1623,6 @@ html {
   .sm\\:mx-\\[2em\\] {
     margin-left: 2em;
     margin-right: 2em;
-  }
-}
-
-@media (min-width: 768px) {
-  .md\\:block {
-    display: block;
-  }
-
-  .md\\:hidden {
-    display: none;
   }
 }
 
