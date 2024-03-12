@@ -1264,10 +1264,6 @@ html {
   display: inline-flex;
 }
 
-.hidden {
-  display: none;
-}
-
 .h-10 {
   height: 2.5rem;
 }
@@ -1619,16 +1615,6 @@ html {
   .sm\\:mx-\\[2em\\] {
     margin-left: 2em;
     margin-right: 2em;
-  }
-}
-
-@media (min-width: 768px) {
-  .md\\:block {
-    display: block;
-  }
-
-  .md\\:hidden {
-    display: none;
   }
 }
 
