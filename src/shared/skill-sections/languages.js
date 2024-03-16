@@ -14,7 +14,7 @@ export class LanguagesSection extends LitElement {
     return html`
       <div class="w-full">
         <header class="divider divider-primary">Languages</header>
-        <section class="flex gap-10 justify-center ">
+        <section class="flex flex-col items-center md:flex-row md:justify-center gap-10  ">
           <div class="tooltip tooltip-close" data-tip="C Sharp">
             <img
               src="../../../public/icons/csharp/csharp-original.svg"

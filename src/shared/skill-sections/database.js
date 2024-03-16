@@ -17,7 +17,7 @@ export class DatabaseSection extends LitElement {
         <section class="flex gap-10 justify-center">
           <div class="w-10/12">
             <header class="divider divider-secondary">Non-Relational</header>
-            <section class="flex gap-10 justify-center">
+            <section class="flex gap-10 flex-col items-center md:flex-row md:justify-center">
               <div class="tooltip tooltip-close" data-tip="Mongoose">
                 <img
                   src="../../../public/icons/mongodb/mongodb-original.svg"
@@ -26,7 +26,7 @@ export class DatabaseSection extends LitElement {
               </div>
             </section>
             <div class="divider divider-secondary">Relational</div>
-            <section class="flex gap-10 justify-center">
+            <section class="flex gap-10 flex-col items-center md:flex-row md:justify-center">
               <div class="tooltip tooltip-close" data-tip="MySql">
                 <img
                   src="../../../public/icons/mysql/mysql-original.svg"

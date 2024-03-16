@@ -17,7 +17,7 @@ export class FrontendSection extends LitElement {
         <section class="flex gap-10 justify-center">
           <div class="w-10/12">
             <header class="divider divider-secondary">Framework</header>
-            <section class="flex gap-10 justify-center">
+            <section class="flex flex-col items-center md:flex-row md:justify-center gap-10">
               <div class="tooltip tooltip-close" data-tip="React">
                 <img
                   src="../../../public/icons/react/react-original.svg"
@@ -38,7 +38,7 @@ export class FrontendSection extends LitElement {
               </div>
             </section>
             <div class="divider divider-secondary">Library</div>
-            <section class="flex gap-10 justify-center">
+            <section class="flex gap-10 flex-col items-center md:flex-row md:justify-center">
               <div class="tooltip tooltip-close" data-tip="Jquery">
                 <img
                   src="../../../public/icons/jquery/jquery-original.svg"
