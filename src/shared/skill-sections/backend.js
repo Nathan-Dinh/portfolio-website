@@ -23,7 +23,7 @@ export class BackendSection extends LitElement {
           </div>
           <div class="w-10/12">
             <header class="divider divider-secondary">Framework</header>
-            <section class="flex gap-10 justify-center">
+            <section class="flex gap-10 flex-col items-center md:flex-row md:justify-center">
               <div class="tooltip tooltip-close" data-tip="Express">
                 <img
                   src="../../../public/icons/express/express-original.svg"
@@ -32,7 +32,7 @@ export class BackendSection extends LitElement {
               </div>
             </section>
             <div class="divider divider-secondary">Library</div>
-            <section class="flex gap-10 justify-center">
+            <section class="flex gap-10 flex-col items-center md:flex-row md:justify-center">
               <div class="tooltip tooltip-close" data-tip="Mongoose">
                 <img
                   src="../../../public/icons/mongoose/mongoose-original.svg"

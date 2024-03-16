@@ -23,11 +23,12 @@
   </head>
   <body id="fanta">
     <div>
-      <side-nav class="block"></side-nav>
+      <side-nav class="hidden md:block"></side-nav>
       <div class="flex flex-col">
+        <mobile-side-nav class="none md:hidden"></mobile-side-nav>
         <div
           id="root"
-          class="min-h-screen flex justify-center sm:mx-[2em] my-[2em]"
+          class="min-h-screen flex justify-center my-[2em]"
         ></div>
         <page-footer></page-footer>
       </div>

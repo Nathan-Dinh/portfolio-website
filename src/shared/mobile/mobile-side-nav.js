@@ -11,16 +11,77 @@ export class MobileSideNav extends LitElement {
 
   constructor() {
     super();
+    this.urlRoutes = {
+      404: {
+        page: "/src/pages/404.html",
+        title: "404",
+        description: "",
+      },
+      "/": {
+        page: "/src/pages/index.html",
+        title: "/",
+        description: "",
+      },
+      "/projects": {
+        page: "/src/pages/projects.html",
+        title: "/projects",
+        description: "",
+      },
+      "/skills": {
+        page: "/src/pages/skills.html",
+        title: "/skills",
+        description: "",
+      },
+    };
+  }
+
+  firstUpdated() {
+    this.urlLocationHandler();
+    window.onpopstate = this.urlLocationHandler.bind(this);
+  }
+
+  handleNavigationClick(e) {
+    const { target } = e;
+    e.preventDefault();
+    this.urlRoute(target.closest("a").href);
+  }
+
+  async urlLocationHandler() {
+    let location = window.location.pathname;
+    if (location.length === 0 || location === "/index.html") {
+      location = "/";
+    }
+    const ROUTE = this.urlRoutes[location] || this.urlRoutes[404];
+    const html = await fetch(ROUTE.page).then((response) => {
+      return response.text();
+    });
+    window.history.pushState({}, "", ROUTE.title);
+    document.getElementById("root").innerHTML = html;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  urlRoute(href) {
+    window.history.pushState({}, "", href);
+    this.urlLocationHandler();
+  }
+
+  displayNavBlock_Click() {
+    const NAV = this.shadowRoot.getElementById("navbar-block");
+    const computedStyle = window.getComputedStyle(NAV);
+    if (computedStyle.getPropertyValue("display") === "block") {
+      NAV.style.display = "none";
+    } else {
+      NAV.style.display = "block";
+    }
   }
 
   render() {
     return html`
-      <nav
-        class="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
-      >
+      <nav class="border-gray-200 bg-gray-700">
         <div class="flex flex-col">
           <div class="flex justify-end">
             <button
+              @click=${this.displayNavBlock_Click}
               data-collapse-toggle="navbar-hamburger"
               type="button"
               class=" w-10 h-10 text-sm text-gray-500 rounded-lg"
@@ -45,38 +106,42 @@ export class MobileSideNav extends LitElement {
               </svg>
             </button>
           </div>
-          <div class="block w-full" id="navbar-hamburger">
-            <ul
-              class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
-            >
+          <div class="hidden z-40 absolute top-9 w-full" id="navbar-block">
+            <ul class="flex flex-col font-medium rounded-b-lg  bg-gray-200 ">
               <li>
                 <a
-                  href="#"
-                  class="block py-2 px-3 text-white bg-blue-700 rounded dark:bg-blue-600"
+                  href="/"
+                  @click=${this.handleNavigationClick}
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100"
                   aria-current="page"
                   >Home</a
                 >
               </li>
               <li>
                 <a
-                  href="#"
-                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >Services</a
+                  href="/projects"
+                  @click=${this.handleNavigationClick}
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100"
+                  >Project</a
                 >
               </li>
               <li>
                 <a
-                  href="#"
-                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white"
-                  >Pricing</a
+                  href="/skills"
+                  @click=${this.handleNavigationClick}
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 "
+                  >Tech Stack</a
                 >
               </li>
-              <li>
-                <a
-                  href="#"
-                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  >Contact</a
+              <li
+                @click=${this.displayNavBlock_Click}
+                class="flex justify-center bg-gray-400 rounded-b-lg font-bold"
+              >
+                <button
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 "
                 >
+                  Close
+                </button>
               </li>
             </ul>
           </div>

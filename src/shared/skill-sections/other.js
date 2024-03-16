@@ -14,7 +14,7 @@ export class OtherSection extends LitElement {
     return html`
       <div>
         <header class="divider divider-primary">Other</header>
-        <section class="flex gap-10 justify-center">
+        <section class="flex gap-10 flex-col items-center md:flex-row md:justify-center">
           <div class="tooltip tooltip-close" data-tip="Github">
             <img
               src="../../../public/icons/github/github-original.svg"
